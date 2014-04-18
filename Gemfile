@@ -1,6 +1,13 @@
-source "http://rubygems.org"
+# If you have OpenSSL installed, we recommend updating
+# the following line to use "https"
+source 'http://rubygems.org'
+source 'https://rails-assets.org'
 
-gem "middleman", "~>2.0.14"
+gem "middleman", "~>3.3.2"
 
-gem "ruby-debug", :platforms => :mri_18
-gem "ruby-debug19", :platforms => :mri_19, :require => 'ruby-debug'
+# Shower CORE and Themes
+gem 'rails-assets-shower-core'
+gem 'rails-assets-shower-ribbon'
+
+# Live-reloading plugin
+gem "middleman-livereload", "~> 3.1.0"

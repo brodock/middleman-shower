@@ -2,39 +2,19 @@
 # Compass
 ###
 
-# Susy grids in Compass
-# First: gem install compass-susy-plugin
-# require 'susy'
-
 # Change Compass configuration
 # compass_config do |config|
 #   config.output_style = :compact
 # end
 
 ###
-# Haml
-###
-
-# CodeRay syntax highlighting in Haml
-# First: gem install haml-coderay
-# require 'haml-coderay'
-
-# CoffeeScript filters in Haml
-# First: gem install coffee-filter
-# require 'coffee-filter'
-
-# Automatic image dimensions on image_tag helper
-# activate :automatic_image_sizes
-
-###
-# Page command
+# Page options, layouts, aliases and proxies
 ###
 
 # Per-page layout changes:
 #
 # With no layout
-# page "*", :layout => false
-
+# page "/path/to/file.html", :layout => false
 #
 # With alternative layout
 # page "/path/to/file.html", :layout => :otherlayout
@@ -44,16 +24,22 @@
 #   page "/admin/*"
 # end
 
-# Proxy (fake) files
-# page "/this-page-has-no-template.html", :proxy => "/template-file.html" do
-#   @which_fake_page = "Rendering a fake page with a variable"
-# end
+# Proxy pages (http://middlemanapp.com/basics/dynamic-pages/)
+# proxy "/this-page-has-no-template.html", "/template-file.html", :locals => {
+#  :which_fake_page => "Rendering a fake page with a local variable" }
 
 ###
 # Helpers
 ###
 
-# Methods defined in the helpers block are available in templates
+# Automatic image dimensions on image_tag helper
+# activate :automatic_image_sizes
+
+# Reload the browser automatically whenever files change
+configure :development do
+   activate :livereload
+end
+
 helpers do
   def presentation_title
     # set your presentation title here
@@ -63,10 +49,6 @@ helpers do
   def presentation_description
     # set your presentation description here
     "description of presentation..."
-  end
-
-  def some_helper
-    "Helping"
   end
 
   # outputs slides in the slides folders
@@ -80,14 +62,16 @@ helpers do
   end
 end
 
-# Change the CSS directory
-# set :css_dir, "alternative_css_directory"
+# Show progress bar?
+set :progress, true
 
-# Change the JS directory
-# set :js_dir, "alternative_js_directory"
+# Middleman configs:
 
-# Change the images directory
-# set :images_dir, "alternative_image_directory"
+set :css_dir, 'stylesheets'
+
+set :js_dir, 'javascripts'
+
+set :images_dir, 'pictures'
 
 # Build-specific configuration
 configure :build do
@@ -98,16 +82,15 @@ configure :build do
   # activate :minify_javascript
 
   # Enable cache buster
-  # activate :cache_buster
+  # activate :asset_hash
 
   # Use relative URLs
   # activate :relative_assets
 
-  # Compress PNGs after build
-  # First: gem install middleman-smusher
-  # require "middleman-smusher"
-  # activate :smusher
-
   # Or use a different image path
-  # set :http_path, "/Content/images/"
+  # set :http_prefix, "/Content/images/"
+end
+
+ready do
+    sprockets.append_path File.join root, 'bower_components'
 end

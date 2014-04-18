@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title><%= presentation_title %></title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=1274, user-scalable=no">
+  <link rel="stylesheet" href="stylesheets/slides.css">
+</head>
+<body class="list">
+  <%= yield %>
+
+  <% if config[:progress] %>
+    <div class="progress"><div></div></div>
+  <% end %>
+  <script src="javascripts/all.js"></script>
+</body>
+</html>
