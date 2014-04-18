@@ -90,7 +90,3 @@ configure :build do
   # Or use a different image path
   # set :http_prefix, "/Content/images/"
 end
-
-ready do
-    sprockets.append_path File.join root, 'bower_components'
-end
