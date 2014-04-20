@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title><%= presentation_title %></title>
+  <title><%= slide_options.presentation_title %></title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=1274, user-scalable=no">
   <link rel="stylesheet" href="stylesheets/slides.css">
@@ -9,7 +9,7 @@
 <body class="list">
   <%= yield %>
 
-  <% if config[:progress] %>
+  <% if slide_options.progress_bar %>
     <div class="progress"><div></div></div>
   <% end %>
   <script src="javascripts/all.js"></script>
