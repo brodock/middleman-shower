@@ -20,3 +20,20 @@
 #Picture h2
   color: #FFF
 
+/* Code Highlight with Coderay */
+.slide .code pre
+  white-space: pre
+  line-height: 1.5em
+
+  span.line-numbers
+    margin-left: -1.5em
+
+    a:after
+      content: ' .'
+    a
+      color: #BBB
+      margin-right: 1em
+
+/* Fix original slides code numbers to match coderay */
+.slide pre code:before
+  content: counter(code) '.'

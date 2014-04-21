@@ -16,9 +16,15 @@ set :css_dir, 'stylesheets'
 set :js_dir, 'javascripts'
 set :images_dir, 'pictures'
 
+# Markdown
+set :markdown_engine, :kramdown
+
+# Code highlight
+set :markdown, input: 'GFM', coderay_bold_every: false
+
 # Reload the browser automatically whenever files change
 configure :development do
-   activate :livereload
+   activate :livereload, no_swf: true
 end
 
 # Build-specific configuration
