@@ -4,5 +4,11 @@
 </header>
 
 <% slides("slides").each do |slide| %>
-  <%= partial slide %>
+  <% if ['.md', '.markdown'].include? File.extname(slide) %>
+    <section class="slide"><div>
+      <%= partial slide %>
+    </div></section>
+  <% else %>
+    <%= partial slide %>
+  <% end %>
 <% end %>

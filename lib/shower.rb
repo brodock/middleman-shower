@@ -15,7 +15,7 @@ class Shower < Middleman::Extension
     # outputs slides in the slides folders
     def slides(folder = "slides")
       results = []
-      Dir["./source/#{folder}/_*.html.*"].each do |slide_path|
+      Dir["./source/#{folder}/_*.{html,md}.*"].each do |slide_path|
         slide_path = slide_path.gsub("./source/", "").gsub("/_", "/").gsub(/$_/, "")
         results << slide_path
       end
